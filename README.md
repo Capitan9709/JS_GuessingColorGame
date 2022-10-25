@@ -6,4 +6,4 @@
 
 Una vez seleccionado alguno de estos dira si has acertado o no.
 
-Aqui el link para probarlo: 
+Aqui el link para probarlo: https://capitan9709.github.io/JS_GuessingColorGame/
