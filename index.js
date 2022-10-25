@@ -31,14 +31,14 @@ window.onload = () => {
     }
     cambiarColores();
     document.getElementById("RGB").innerHTML = seleccionarDivObjetivo();
+    document.getElementById("resultado").innerHTML = "Aquí se mostrará tu resultado";
 
     boton.addEventListener("click",()=>{
         cambiarColores();
         document.getElementById("RGB").innerHTML = seleccionarDivObjetivo();
-
+        document.getElementById("resultado").innerHTML = "Aquí se mostrará tu resultado";
     })
 
-    document.getElementById("resultado").innerHTML = "Aquí se mostrará tu resultado";
     
     for (let i = 0; i < divs.length; i++) {
         divs[i].addEventListener("click", () => {
