@@ -5,21 +5,15 @@ function generarNumero(numero){
 
 // Funcion para generar el codigo rgb
 function colorRGB(){
-    
-        var color = "("+generarNumero(255)+"," + generarNumero(255) + "," + generarNumero(255) +")";
+        var color = "("+generarNumero(255)+", " + generarNumero(255) + ", " + generarNumero(255) +")";
         return "rgb" + color;
     
 }
 
-// Funcion para seleccionar un color de un div como objetivo
-function seleccionarDivObjetivo(){
-    let divs = document.getElementsByClassName("color");
-    seleccion = divs[generarNumero(6)].style.backgroundColor;
-    return seleccion;
-}
-
 window.onload = () => {
-
+    let colores = [];
+    console.log(colores);
+    
     let boton = document.querySelector("a");
     let divs = document.getElementsByClassName("color");
 
@@ -27,22 +21,29 @@ window.onload = () => {
         for(let i = 0; i < divs.length; i++){
             let color = colorRGB();
             divs[i].style.backgroundColor = color;
+            colores.push(color);
         }
     }
     cambiarColores();
-    document.getElementById("RGB").innerHTML = seleccionarDivObjetivo();
+
+// Elegir un color objetivo
+    let seleccion = colores[generarNumero(5)];
+
+    document.getElementById("RGB").innerHTML = seleccion;
     document.getElementById("resultado").innerHTML = "Aquí se mostrará tu resultado";
 
     boton.addEventListener("click",()=>{
+        let indice = 0;
+        colores.splice(indice,6);
         cambiarColores();
-        document.getElementById("RGB").innerHTML = seleccionarDivObjetivo();
+        let seleccion = colores[generarNumero(5)];
+        // seleccion aqui no funciona -------------------
+        document.getElementById("RGB").innerHTML = seleccion;
         document.getElementById("resultado").innerHTML = "Aquí se mostrará tu resultado";
     })
-
-    
     for (let i = 0; i < divs.length; i++) {
-        divs[i].addEventListener("click", () => {
-            if (divs[i].style.backgroundColor == seleccionarDivObjetivo()) {
+        divs[i].addEventListener("click", (e) => {
+            if (e.target.style.backgroundColor == seleccion) {
                 document.getElementById("resultado").innerHTML = "¡Has acertado!";
             } 
             else {
